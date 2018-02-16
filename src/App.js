@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import IssueItem from './issue-item.js';
+import IssueList from './issue-list.js';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <h1>A simple board for usergroups to connect with volunteers</h1>
 
-        <IssueItem />
+        <IssueList />
       </div>
     );
   }
