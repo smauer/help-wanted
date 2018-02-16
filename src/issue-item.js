@@ -19,7 +19,7 @@ export default class IssueItem extends Component {
             return null;
         }
         return (
-            <li className="custom-list"><a href={ this.props.issue.html_url }>{ this.props.issue.title }</a>  | <span onClick={ this.ToggleDetails.bind(this) }>details</span> | { this.props.issue.user.login }
+            <li className="custom-list"><a href={ this.props.issue.html_url }>{ this.props.issue.title }</a>  | <span onClick={ this.ToggleDetails.bind(this) }>Show details</span> | { this.props.issue.user.login }
                 { this.state.toggle ? <p>{ this.props.issue.body }</p> : null }
             </li>
         )
