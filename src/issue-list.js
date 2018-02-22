@@ -27,8 +27,9 @@ export default class IssueList extends Component {
     render() {
         console.log(this.state);
         return (
-            <div>
-                <ul>
+            <div className="col-md-12">
+                { this.state.data.length > 0 ? '' : 'Looks like we are good for right now, but please check back soon!'}
+                <ul className="list-group">
                     { this.state.data.map( issue => <IssueItem issue={ issue } key={ issue.id } />  )}
                 </ul>
             </div>

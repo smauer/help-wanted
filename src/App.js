@@ -7,10 +7,12 @@ import IssueList from './issue-list.js';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>A simple board for usergroups to connect with volunteers</h1>
+      <div className="App container">
+        <h1 className="nav justify-content-center custom-nav">Techlahoma Help Wanted</h1>
 
-        <IssueList />
+        <div className="row">
+          <IssueList />
+        </div>
       </div>
     );
   }
