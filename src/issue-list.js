@@ -25,7 +25,6 @@ export default class IssueList extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="col-md-12">
                 { this.state.data.length > 0 ? '' : 'Looks like we are good for right now, but please check back soon!'}
