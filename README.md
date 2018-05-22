@@ -14,8 +14,8 @@ This project is intended to provide Techlahoma Usergroup Leaders and committee c
     - Brief description of issue
     - Brief description of what is needed
 
-  - Issue should be tagged with the appropriate usergroup or committee label
-  - That's it!
+  3. Issue should be tagged with the appropriate usergroup or committee label
+  4. That's it!
 
 Techlahoma will advertise the board to volunteers as a way to help Techlahoma and their favorite usergroups.
 
@@ -23,7 +23,7 @@ Techlahoma will advertise the board to volunteers as a way to help Techlahoma an
 
   1. Browse through open issues
   2. Contact the contact person for the issue you want to help with
-  3. Assign yourself to the issue and complete it
+  3. Assign the issue to yourself and complete it
   4. That's it! Thanks for your help!
 
 
