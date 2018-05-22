@@ -1,5 +1,5 @@
 body {
-  background-color: #efefef;
+  background-color: #e6ecf0;
 }
 .App {
   text-align: center;
@@ -28,6 +28,15 @@ body {
 .custom-nav {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+.custom-h4 {
+  text-align: left;
+}
+
+.custom-img-margin {
+  width: 75%;
+  margin-bottom: 30px;
 }
 
 @keyframes App-logo-spin {

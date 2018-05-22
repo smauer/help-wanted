@@ -40,9 +40,13 @@ export default class IssueList extends Component {
     const labels = Object.keys(data);
 
     return labels.map(label => {
+      if(data[label].length <= 0) {
+        return null;
+      }
+
       return (
         <Fragment key={label}>
-          <h2>{label}</h2>
+          <h4 className="custom-h4">{label}</h4>
           <ul className="list-group">
             {data[label].map(issue => (
               <IssueItem issue={issue} key={issue.id} />

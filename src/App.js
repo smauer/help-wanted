@@ -8,7 +8,8 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <h1 className="nav justify-content-center custom-nav">Techlahoma Help Wanted</h1>
+        {/* <h1 className="nav justify-content-center custom-nav">Techlahoma Help Wanted</h1> */}
+        <img className="custom-img-margin" src="/help-wanted.png" />
 
         <div className="row">
           <IssueList />
