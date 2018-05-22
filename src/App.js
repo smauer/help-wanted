@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App container">
         {/* <h1 className="nav justify-content-center custom-nav">Techlahoma Help Wanted</h1> */}
-        <img className="custom-img-margin" src="/help-wanted.png" />
+        <img className="custom-img-margin" src="./help-wanted.png" />
 
         <div className="row">
           <IssueList />
