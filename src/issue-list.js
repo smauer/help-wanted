@@ -62,7 +62,6 @@ export default class IssueList extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="col-md-12">
         {Object.keys(this.state.data).filter(label => label !== 'Unlabeled')
