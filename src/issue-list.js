@@ -45,9 +45,11 @@ export default class IssueList extends Component {
       }
 
       return (
-        <Fragment key={label}>
-          <h4 className="custom-h4">{label}</h4>
-          <ul className="list-group">
+        <Fragment key={label}>                    
+          <ul className="list-group mb-4">
+            <li className="list-group-item list-group-item-info">
+              <span className="h5 mt-3">{label}</span>
+            </li>
             {data[label].map(issue => (
               <IssueItem issue={issue} key={issue.id} />
             ))}
