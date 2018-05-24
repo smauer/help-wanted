@@ -21,8 +21,8 @@ Techlahoma will advertise the board to volunteers as a way to help Techlahoma an
 
 ## I want to help
 
-  1. Browse through open issues
-  2. Contact the contact person for the issue you want to help with
+  1. Browse through open issues at [http://techlahoma.github.io/help-wanted](http://techlahoma.github.io/help-wanted)
+  2. Contact the contact person listed on the issue you want to help with
   3. Assign the issue to yourself and complete it
   4. That's it! Thanks for your help!
 
