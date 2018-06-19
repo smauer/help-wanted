@@ -7,9 +7,9 @@ import IssueList from './issue-list.js';
 class App extends Component {
   render() {
     return (
-      <div className="App container">
+      <div className="App container text-left">
         {/* <h1 className="nav justify-content-center custom-nav">Techlahoma Help Wanted</h1> */}
-        <img className="custom-img-margin" src="./help-wanted.png" />
+        <img className="img-fluid mx-auto my-5 w-50" src="./help-wanted.png" />
 
         <div className="row">
           <IssueList />
