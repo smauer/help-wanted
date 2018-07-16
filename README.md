@@ -1,6 +1,8 @@
 # help-wanted board
 
-This project is intended to provide Techlahoma Usergroup Leaders and committee chairs a place to search for help. The board may be used in this manner:
+This project is intended to provide Techlahoma Usergroup Leaders and committee chairs a place to search for help. Techlahoma uses [Slack](https://slack.com/) to communicate. If you aren't a part of our Slack channel, you can [sign up here](http://slack.techlahoma.org/).
+
+The board may be used in this manner:
 
 ## I need help
 
