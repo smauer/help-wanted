@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import FetchData from './FetchData.js';
 import IssueItem from './issue-item.js';
-import logo from './logo.svg';
 
 export default class IssueList extends Component {
   constructor(props) {
@@ -40,15 +39,24 @@ export default class IssueList extends Component {
     const labels = Object.keys(data);
 
     return labels.map(label => {
-      if(data[label].length <= 0) {
+      if (data[label].length <= 0) {
         return null;
       }
 
+      const labelURL =
+        label === 'Unlabeled'
+          ? 'https://github.com/techlahoma/help-wanted/issues?q=is%3Aopen+is%3Aissue+no%3Alabel'
+          : `https://github.com/techlahoma/help-wanted/labels/${label}`;
+
       return (
-        <Fragment key={label}>                    
+        <Fragment key={label}>
           <ul className="list-group mb-4">
             <li className="list-group-item list-group-item-info">
-              <span className="h5 mt-3">{label}</span>
+              <span className="h5 mt-3">
+                <a href={labelURL} target="_blank">
+                  {label}
+                </a>
+              </span>
             </li>
             {data[label].map(issue => (
               <IssueItem issue={issue} key={issue.id} />
