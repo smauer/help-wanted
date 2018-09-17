@@ -21,6 +21,7 @@ export default class IssueList extends Component {
     })
     .then((response) => {
       let newRez = response.filter(data => data.assignee == null);
+      newRez = response.filter(data => !data.pull_request);
       const data = newRez.reduce(
         (acc, issue) => {
           const label =
