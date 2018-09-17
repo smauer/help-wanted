@@ -1,17 +1,23 @@
 import React, { Component, Fragment } from 'react';
 import FetchData from './FetchData.js';
 import IssueItem from './issue-item.js';
+var octopage = require('github-pagination');
 
 export default class IssueList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      octopage: {}
     };
   }
 
   GetApiData() {
-    FetchData().then(response => {
+    FetchData('https://api.github.com/repos/techlahoma/help-wanted/issues').then(response => {
+      this.setState({octopage: octopage.parser(response.headers.get("Link"))});
+      return response.json()
+    })
+    .then((response) => {
       let newRez = response.filter(data => data.assignee == null);
       const data = newRez.reduce(
         (acc, issue) => {
@@ -30,7 +36,7 @@ export default class IssueList extends Component {
       this.setState({
         data
       });
-    });
+    })
   }
 
   renderIssuesList = () => {
@@ -72,12 +78,18 @@ export default class IssueList extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="col-md-12">
         {Object.keys(this.state.data).filter(label => label !== 'Unlabeled')
           .length > 0
           ? this.renderIssuesList()
           : 'Looks like we are good for right now, but please check back soon!'}
+
+          <div>
+          <button class="btn btn-secondary mr-3">New Issues</button>
+          <button class="btn btn-secondary mr-3">Older Issues</button>
+          </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
-export default function FetchData() {
-    return window.fetch('https://api.github.com/repos/techlahoma/help-wanted/issues')
+export default function FetchData(link) {
+    return window.fetch(link)
         .then(function(response) {
-            return response.json();
+            // response.headers.get("Link")
+            return response;
         });
 }
