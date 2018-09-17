@@ -10,10 +10,12 @@ export default class IssueList extends Component {
       data: [],
       octopage: {}
     };
+    this.newIssues = this.newIssues.bind(this);
+    this.olderIssues = this.olderIssues.bind(this);
   }
 
-  GetApiData() {
-    FetchData('https://api.github.com/repos/techlahoma/help-wanted/issues').then(response => {
+  GetApiData(link) {
+    FetchData(link).then(response => {
       this.setState({octopage: octopage.parser(response.headers.get("Link"))});
       return response.json()
     })
@@ -37,6 +39,16 @@ export default class IssueList extends Component {
         data
       });
     })
+  }
+
+  newIssues() {
+    var link = 'https://api.github.com/repos/techlahoma/help-wanted/issues?page=' + this.state.octopage.prev;
+    this.GetApiData(link);
+  }
+
+  olderIssues() {
+    var link = 'https://api.github.com/repos/techlahoma/help-wanted/issues?page=' + this.state.octopage.next;
+    this.GetApiData(link);
   }
 
   renderIssuesList = () => {
@@ -74,7 +86,7 @@ export default class IssueList extends Component {
   };
 
   componentWillMount() {
-    this.GetApiData();
+    this.GetApiData('https://api.github.com/repos/techlahoma/help-wanted/issues');
   }
 
   render() {
@@ -86,9 +98,9 @@ export default class IssueList extends Component {
           ? this.renderIssuesList()
           : 'Looks like we are good for right now, but please check back soon!'}
 
-          <div>
-          <button class="btn btn-secondary mr-3">New Issues</button>
-          <button class="btn btn-secondary mr-3">Older Issues</button>
+          <div className="pagination-btns">
+            <button className="btn btn-secondary mr-3" disabled={ !this.state.octopage.prev } onClick={ this.newIssues }>Newer Issues</button>
+            <button className="btn btn-secondary mr-3" disabled={ !this.state.octopage.next } onClick={ this.olderIssues }>Older Issues</button>
           </div>
       </div>
     );
