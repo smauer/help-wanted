@@ -1,17 +1,25 @@
 import React, { Component, Fragment } from 'react';
 import FetchData from './FetchData.js';
 import IssueItem from './issue-item.js';
+var octopage = require('github-pagination');
 
 export default class IssueList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      octopage: {}
     };
+    this.newIssues = this.newIssues.bind(this);
+    this.olderIssues = this.olderIssues.bind(this);
   }
 
-  GetApiData() {
-    FetchData().then(response => {
+  GetApiData(link) {
+    FetchData(link).then(response => {
+      this.setState({octopage: octopage.parser(response.headers.get("Link"))});
+      return response.json()
+    })
+    .then((response) => {
       let newRez = response.filter(data => data.assignee == null);
       const data = newRez.reduce(
         (acc, issue) => {
@@ -30,7 +38,17 @@ export default class IssueList extends Component {
       this.setState({
         data
       });
-    });
+    })
+  }
+
+  newIssues() {
+    var link = 'https://api.github.com/repos/techlahoma/help-wanted/issues?page=' + this.state.octopage.prev;
+    this.GetApiData(link);
+  }
+
+  olderIssues() {
+    var link = 'https://api.github.com/repos/techlahoma/help-wanted/issues?page=' + this.state.octopage.next;
+    this.GetApiData(link);
   }
 
   renderIssuesList = () => {
@@ -68,16 +86,22 @@ export default class IssueList extends Component {
   };
 
   componentWillMount() {
-    this.GetApiData();
+    this.GetApiData('https://api.github.com/repos/techlahoma/help-wanted/issues');
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="col-md-12">
         {Object.keys(this.state.data).filter(label => label !== 'Unlabeled')
           .length > 0
           ? this.renderIssuesList()
           : 'Looks like we are good for right now, but please check back soon!'}
+
+          <div className="pagination-btns">
+            <button className="btn btn-secondary mr-3" disabled={ !this.state.octopage.prev } onClick={ this.newIssues }>Newer Issues</button>
+            <button className="btn btn-secondary mr-3" disabled={ !this.state.octopage.next } onClick={ this.olderIssues }>Older Issues</button>
+          </div>
       </div>
     );
   }
