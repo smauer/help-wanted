@@ -21,6 +21,7 @@ export default class IssueList extends Component {
     })
     .then((response) => {
       let newRez = response.filter(data => data.assignee == null);
+      newRez = newRez.filter(data => !data.pull_request);
       const data = newRez.reduce(
         (acc, issue) => {
           const label =
@@ -90,7 +91,6 @@ export default class IssueList extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="col-md-12">
         {Object.keys(this.state.data).filter(label => label !== 'Unlabeled')
