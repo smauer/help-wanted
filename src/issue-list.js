@@ -16,7 +16,9 @@ export default class IssueList extends Component {
 
   GetApiData(link) {
     FetchData(link).then(response => {
-      this.setState({octopage: octopage.parser(response.headers.get("Link"))});
+      if(response.headers.get("Link")) {
+        this.setState({octopage: octopage.parser(response.headers.get("Link"))});
+      }
       return response.json()
     })
     .then((response) => {
