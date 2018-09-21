@@ -32,7 +32,10 @@ test('Issue Item Button Text Changes When Clicked', () => {
 test('Issue Item Displays/Hides Issue Body When Clicked', () => {
     const component = shallow(<IssueItem issue={issue} key={issue.id} />);
     
+<<<<<<< HEAD
     //Confirm initial state
+=======
+>>>>>>> 097d728ec77540f2ed24c3b558350d05324145c1
     expect(!component.exists('div#issue-body-' + issue.id)).toBe(true);
 
     component.find('button').simulate('click');
@@ -40,6 +43,7 @@ test('Issue Item Displays/Hides Issue Body When Clicked', () => {
 
     component.find('button').simulate('click');
     expect(!component.exists('div#issue-body-' + issue.id)).toBe(true);
+<<<<<<< HEAD
 });
 
 test('Issue Item Has Title', () => {
@@ -64,4 +68,6 @@ test('Issue Item Has GitHub Issue Link', () => {
     const component = shallow(<IssueItem issue={issue} key={issue.id} />)
 
     expect(component.find("a#issue-link-" + issue.id).prop('href')).toEqual(issue.html_url);
+=======
+>>>>>>> 097d728ec77540f2ed24c3b558350d05324145c1
 });
