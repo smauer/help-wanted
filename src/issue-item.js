@@ -34,7 +34,7 @@ export default class IssueItem extends Component {
                     }                    
                     <a target="_blank" className="btn btn-primary" href={ this.props.issue.html_url }>View on Github</a>
                 </div>
-                { this.state.toggle ? <div className="p-2 pt-4 border-top border-light w-100 d-block"><p>{ this.props.issue.body }</p></div> : null }
+                { this.state.toggle ? <div id={"issue-body-" + this.props.issue.id } className="p-2 pt-4 border-top border-light w-100 d-block"><p>{ this.props.issue.body }</p></div> : null }
             </li>
         )
     }
