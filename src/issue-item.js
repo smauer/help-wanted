@@ -21,9 +21,9 @@ export default class IssueItem extends Component {
         return (
             <li className="list-group-item custom-list">
                 <div className="col pl-0">
-                    <p className="h4 pl-0 pt-2 d-block text-left">{ this.props.issue.title }</p>                    
+                    <p id={ "issue-title-" + this.props.issue.id }className="h4 pl-0 pt-2 d-block text-left">{ this.props.issue.title }</p>                    
                     <small className="text-muted">OPENED BY:</small>
-                    <a target="_blank" className="btn btn-link pl-2 py-0" href={this.props.issue.user.html_url }>{ this.props.issue.user.login }</a>
+                    <a id={ "issue-user-link-" + this.props.issue.id } target="_blank" className="btn btn-link pl-2 py-0" href={this.props.issue.user.html_url }>{ this.props.issue.user.login }</a>
                 </div>                
                 <div className="col text-right">
                     { this.props.issue.body.length ? (
@@ -32,9 +32,9 @@ export default class IssueItem extends Component {
                         </button>
                         ) : ( null )
                     }                    
-                    <a target="_blank" className="btn btn-primary" href={ this.props.issue.html_url }>View on Github</a>
+                    <a id={ "issue-link-" + this.props.issue.id } target="_blank" className="btn btn-primary" href={ this.props.issue.html_url }>View on Github</a>
                 </div>
-                { this.state.toggle ? <div className="p-2 pt-4 border-top border-light w-100 d-block"><p>{ this.props.issue.body }</p></div> : null }
+                { this.state.toggle ? <div id={"issue-body-" + this.props.issue.id } className="p-2 pt-4 border-top border-light w-100 d-block"><p>{ this.props.issue.body }</p></div> : null }
             </li>
         )
     }
