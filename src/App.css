@@ -39,6 +39,21 @@ body {
   margin-bottom: 30px;
 }
 
+.Help-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Help-link {
+  margin: auto 2rem;
+}
+
+.logo {
+  min-width: 20rem;
+}
+
 .pagination-btns {
   margin-bottom: 30px;
   text-align: center;
@@ -47,4 +62,15 @@ body {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 500px) {
+  .Help-header {
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+
+  .Help-link {
+    margin: auto;
+  }
 }
